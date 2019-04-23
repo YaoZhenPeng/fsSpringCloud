@@ -1,0 +1,10 @@
+server:
+  port:
+    9999
+
+eureka:
+  client:
+    register-with-eureka: false # 服务注册，false表示不将本消费者注册到 eureka 服务器注册中心
+    fetch-registry: true # 服务发现， true 表示从 eureka 服务器注册中心可以获取其他服务注册信息
+    service-url:
+      defaultZone: http://EurekaServerFirst.com:6001/eureka,http://EurekaServerSecond.com:6002/eureka #服务注册中心地址

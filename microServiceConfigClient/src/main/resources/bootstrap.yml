@@ -1,0 +1,8 @@
+# 读取配置文件相关配置
+spring:
+  cloud:
+    config:
+      name: microServiceConfigApplication #github上的配置名称，注意没有yml后缀名
+      profile: prod #本次访问的环境配置项
+      label: master #远程库存的分支名
+      uri: http://localhost:5001 #Config配置中心地址，通过它获取 microServiceConfigApplication.yml配置信息

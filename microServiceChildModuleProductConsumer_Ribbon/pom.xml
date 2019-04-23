@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- 继承父级工程 -->
+    <parent>
+        <artifactId>microServiceFatherModule</artifactId>
+        <groupId>com.example.fs</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../microServiceFatherModule/pom.xml</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 项目名称(产品服务消费者)，项目所属组及版本与父级工程相同，所以不用写 -->
+    <!-- 工程使用 restTemplate(访问产品服务提供者) + Ribbon(客户端负载均衡) -->
+    <artifactId>microServiceChildModuleProductConsumer_Ribbon</artifactId>
+
+    <dependencies>
+        <!-- 微服务相关 -->
+        <dependency>
+            <!-- 表明微服务客户端依赖 -->
+            <!-- 其中的 ribbon 实现了客户端负载均衡，可直接配置实现(因为其中自动引入spring-cloud-starter-netflix-eureka-ribbon) -->
+            <!-- 当要请求对应服务(负载均衡时相同的服务可能部署在不同服务器上)时 ribbon 先从 eureka 注册中心获取服务列表 -->
+            <!-- 根据负载均衡的算法(有轮训、随机、加权轮训、加权随机、地址哈希等)默认轮训算法得到最优的服务，去调用服务提供者的微服务接口 -->
+            <!-- 其他配置见yml -->
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!-- 引入公共微服务工程 -->
+        <dependency>
+            <groupId>com.example.fs</groupId>
+            <artifactId>microServiceChildModuleCommon</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- 导入需要的包，父工程已经有了相同包的版本不需要在写版本 -->
+
+        <!-- springboot web启动器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
