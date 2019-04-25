@@ -1,0 +1,114 @@
+# 注意：如果在记事本上编写，下面的缩写不要使用Tab来缩写，不然报错
+spring:
+  profiles:
+    active: dev  # 激活开发环境配置
+
+---
+spring:
+  profiles: dev # 开发环境
+  application:
+    name: microServiceProductProvider
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml   # mybatis配置文件所在路径
+  mapper-locations: classpath:mybatis/mapper/**/*.xml  # mapper映射文件
+  type-aliases-package: com.example.fs.model  # 所有Model别名类所在包
+
+  #   数据源基本配置
+  datasource:
+    username: root
+    password: 123456
+    #使用 MySQL连接驱动是8.0以上，需要在url后面加上时区，GMT%2B8代表中国时区，不然报时区错误
+    url: jdbc:mysql://127.0.0.1:3306/fs?serverTimezone=GMT%2B8
+    # 注意：新版本驱动包，要使用以下类作为驱动类
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    #指定 Druid 数据库连接池框架
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 8
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #配置监控统计拦截的filters,去掉后监控界面sql无法统计，‘wall'用于防火墙
+    filters: stat,wall,logback
+    maxPoolPreparedStatementPerConnectionSize: 25
+    useGlobalDataSourceStat: true
+    connectionProperties: druid..stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+eureka:
+  client:
+    register-with-eureka: true #服务注册开关
+    fetch-registry: true # 服务发现开关
+    service-url: # 注册到哪个Eureka Server服务注册中心，集群服务注册中心时多个中间用逗号分隔
+      # 单机版 Eureka 服务注册中心
+      # defaultZone: http://localhost:6001/eureka
+
+      # 集群版 Eureka 服务注册中心
+      defaultZone: http://EurekaServerFirst.com:6001/eureka,http://EurekaServerSecond.com:6002/eureka
+  instance:
+    instance-id: ${spring.application.name}:${server.port} # 指定实例ID,这样在Eureka Server服务注册中心就显示设置内容，否则显示的是主机名
+    prefer-ip-address: true # 设置Eureka Server服务注册中心 实例链接 可以显示IP地址
+
+---
+spring:
+  profiles: prod # 开发环境
+  application:
+    name: microServiceProductProvider
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml   # mybatis配置文件所在路径
+  mapper-locations: classpath:mybatis/mapper/**/*.xml  # mapper映射文件
+  type-aliases-package: com.example.fs.model  # 所有Model别名类所在包
+
+  #   数据源基本配置
+  datasource:
+    username: root
+    password: 123456
+    #使用 MySQL连接驱动是8.0以上，需要在url后面加上时区，GMT%2B8代表中国时区，不然报时区错误
+    url: jdbc:mysql://127.0.0.1:3306/fs?serverTimezone=GMT%2B8
+    # 注意：新版本驱动包，要使用以下类作为驱动类
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    #指定 Druid 数据库连接池框架
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 8
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #配置监控统计拦截的filters,去掉后监控界面sql无法统计，‘wall'用于防火墙
+    filters: stat,wall,logback
+    maxPoolPreparedStatementPerConnectionSize: 25
+    useGlobalDataSourceStat: true
+    connectionProperties: druid..stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+eureka:
+  client:
+    register-with-eureka: true #服务注册开关
+    fetch-registry: true # 服务发现开关
+    service-url: # 注册到哪个Eureka Server服务注册中心，集群服务注册中心时多个中间用逗号分隔
+      # 单机版 Eureka 服务注册中心
+      # defaultZone: http://localhost:6001/eureka
+
+      # 集群版 Eureka 服务注册中心
+      defaultZone: http://EurekaServerFirst.com:6001/eureka,http://EurekaServerSecond.com:6002/eureka
+  instance:
+    instance-id: ${spring.application.name}:${server.port} # 指定实例ID,这样在Eureka Server服务注册中心就显示设置内容，否则显示的是主机名
+    prefer-ip-address: true # 设置Eureka Server服务注册中心 实例链接 可以显示IP地址
