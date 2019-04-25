@@ -1,20 +1,19 @@
-# 注意：如果在记事本上编写，下面的缩写不要使用Tab来缩写，不然报错
 spring:
   profiles:
-    active: dev  # 激活开发环境配置
-
+    active: dev
 ---
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml   # mybatis配置文件所在路径
+  mapper-locations: classpath:mybatis/mapper/**/*.xml  # mapper映射文件
+  type-aliases-package: com.example.fs.model  # 所有Model别名类所在包
+
 spring:
   profiles: dev # 开发环境
   application:
     name: microServiceProductProvider
-server:
-  port: 8001
-
-mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml   # mybatis配置文件所在路径
-  mapper-locations: classpath:mybatis/mapper/**/*.xml  # mapper映射文件
-  type-aliases-package: com.example.fs.model  # 所有Model别名类所在包
 
   #   数据源基本配置
   datasource:
@@ -58,18 +57,25 @@ eureka:
     instance-id: ${spring.application.name}:${server.port} # 指定实例ID,这样在Eureka Server服务注册中心就显示设置内容，否则显示的是主机名
     prefer-ip-address: true # 设置Eureka Server服务注册中心 实例链接 可以显示IP地址
 
+# 在被监控服务上添加暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
 ---
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml   # mybatis配置文件所在路径
+  mapper-locations: classpath:mybatis/mapper/**/*.xml  # mapper映射文件
+  type-aliases-package: com.example.fs.model  # 所有Model别名类所在包
+
 spring:
-  profiles: prod # 开发环境
+  profiles: prod # 生产环境
   application:
     name: microServiceProductProvider
-server:
-  port: 8001
-
-mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml   # mybatis配置文件所在路径
-  mapper-locations: classpath:mybatis/mapper/**/*.xml  # mapper映射文件
-  type-aliases-package: com.example.fs.model  # 所有Model别名类所在包
 
   #   数据源基本配置
   datasource:
@@ -112,3 +118,10 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${server.port} # 指定实例ID,这样在Eureka Server服务注册中心就显示设置内容，否则显示的是主机名
     prefer-ip-address: true # 设置Eureka Server服务注册中心 实例链接 可以显示IP地址
+
+# 在被监控服务上添加暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
