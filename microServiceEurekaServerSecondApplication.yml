@@ -1,0 +1,60 @@
+# 注意：如果在记事本上编写，下面的缩写不要使用Tab来缩写，不然报错
+spring:
+  profiles:
+    active: dev  # 激活开发环境配置
+
+---
+spring:
+  profiles: dev # 开发环境
+  application:
+    name: microServiceEurekaServerSecond
+
+server:
+  port: 6002
+
+eureka:
+  client:
+    register-with-eureka: false # 服务注册，false表示不将当前服务中心，注册到当前Eureka服务中
+    fetch-registry: false # 服务发现，false表示自己不从Eureka服务中获取当前注册信息
+    service-url:  # 配置Eureka客户端(微服务) 与 Eureka服务端(微服务注册中心)的交互地址，及当前注册中心地址
+      # 单机版配置自己(如果不配置则默认本机8761端口)
+      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+      # 集群版至少配置两台服务器，这里是另一个服务注册中心地址，表示将当前注册到另一个服务注册中心，另一个配置的是注册到当前
+      # 两台服务中心互相注册，这样微服务相当于向两台都注册了，即使一台死掉也不会影响微服务的注册与发现
+      defaultZone: http://EurekaServerFirst.com:6001/eureka/
+  server:
+    enable-self-preservation: false # 开发时禁用自我保护模式，生产时要开启为了防止某个微服务因网络故障等其他原因导致注册中心中删除该服务
+  instance:
+    # eureka服务端的IP实例名称（这个位置放前面启动会报错，放这里可以），如果在本机及只有当前一个服务注册中心
+    # 直接用 localhost 就可以，实际情况就要换成具体域名
+    # 在本机测试多个服务注册中心时，在C:\Windows\System32\drivers\etc\hosts中设置不同域名都是指向本机IP即可
+    hostname: EurekaServerSecond.com
+
+---
+spring:
+  profiles: prod # 开发环境
+  application:
+    name: microServiceEurekaServerSecond
+
+server:
+  port: 6002
+
+eureka:
+  client:
+    register-with-eureka: false # 服务注册，false表示不将当前服务中心，注册到当前Eureka服务中
+    fetch-registry: false # 服务发现，false表示自己不从Eureka服务中获取当前注册信息
+    service-url:  # 配置Eureka客户端(微服务) 与 Eureka服务端(微服务注册中心)的交互地址，及当前注册中心地址
+      # 单机版配置自己(如果不配置则默认本机8761端口)
+      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+      # 集群版至少配置两台服务器，这里是另一个服务注册中心地址，表示将当前注册到另一个服务注册中心，另一个配置的是注册到当前
+      # 两台服务中心互相注册，这样微服务相当于向两台都注册了，即使一台死掉也不会影响微服务的注册与发现
+      defaultZone: http://EurekaServerFirst.com:6001/eureka/
+  server:
+    enable-self-preservation: false # 开发时禁用自我保护模式，生产时要开启为了防止某个微服务因网络故障等其他原因导致注册中心中删除该服务
+  instance:
+    # eureka服务端的IP实例名称（这个位置放前面启动会报错，放这里可以），如果在本机及只有当前一个服务注册中心
+    # 直接用 localhost 就可以，实际情况就要换成具体域名
+    # 在本机测试多个服务注册中心时，在C:\Windows\System32\drivers\etc\hosts中设置不同域名都是指向本机IP即可
+    hostname: EurekaServerSecond.com

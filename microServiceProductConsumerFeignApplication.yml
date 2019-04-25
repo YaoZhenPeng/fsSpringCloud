@@ -1,0 +1,59 @@
+# 注意：如果在记事本上编写，下面的缩写不要使用Tab来缩写，不然报错
+spring:
+  profiles:
+    active: dev  # 激活开发环境配置
+
+---
+spring:
+  profiles: dev # 开发环境
+  application:
+    name: microServiceProductConsumerFeign
+server:
+  port:
+    9998
+
+eureka:
+  client:
+    register-with-eureka: false # 服务注册，false表示不将本消费者注册到 eureka 服务器注册中心
+    fetch-registry: true # 服务发现， true 表示从 eureka 服务器注册中心获取注册信息
+    service-url:
+      defaultZone: http://EurekaServerFirst.com:6001/eureka,http://EurekaServerSecond.com:6002/eureka #服务注册中心地址
+
+# 在被监控服务上添加暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+# 开启 feign 的熔断器 hystrix
+feign:
+  hystrix:
+    enabled: true
+---
+spring:
+  profiles: prod # 开发环境
+  application:
+    name: microServiceProductConsumerFeign
+server:
+  port:
+    9998
+
+eureka:
+  client:
+    register-with-eureka: false # 服务注册，false表示不将本消费者注册到 eureka 服务器注册中心
+    fetch-registry: true # 服务发现， true 表示从 eureka 服务器注册中心获取注册信息
+    service-url:
+      defaultZone: http://EurekaServerFirst.com:6001/eureka,http://EurekaServerSecond.com:6002/eureka #服务注册中心地址
+
+# 在被监控服务上添加暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+# 开启 feign 的熔断器 hystrix
+feign:
+  hystrix:
+    enabled: true

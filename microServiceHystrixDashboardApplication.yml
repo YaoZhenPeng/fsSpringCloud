@@ -1,0 +1,21 @@
+# 注意：如果在记事本上编写，下面的缩写不要使用Tab来缩写，不然报错
+spring:
+  profiles:
+    active: dev  # 激活开发环境配置
+
+---
+server:
+  port: 9001
+
+spring:
+  profiles: dev # 开发环境
+  application:
+    name: microServiceHystrixDashboard
+---
+server:
+  port: 9001
+
+spring:
+  profiles: prod # 开发环境
+  application:
+    name: microServiceHystrixDashboard
