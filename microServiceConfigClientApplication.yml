@@ -4,7 +4,7 @@ spring:
     active: dev #激活开发环境配置
 ---
 server:
-  port: 4001 #端口号
+  port: 3001 #端口号
 spring:
   profiles: dev #开发环境
   application:
