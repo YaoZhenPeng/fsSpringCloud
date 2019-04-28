@@ -119,3 +119,9 @@ eureka:
     instance-id: ${spring.application.name}:${server.port} # 指定实例ID,这样在Eureka Server服务注册中心就显示设置内容，否则显示的是主机名
     prefer-ip-address: true # 设置Eureka Server服务注册中心 实例链接 可以显示IP地址
 
+# 在被监控服务上添加暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
