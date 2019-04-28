@@ -18,8 +18,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class ProductProviderApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context=SpringApplication.run(ProductProviderApplication.class, args);
-        DataSourceProperties db=context.getBean(DataSourceProperties.class);
-        System.out.println(db.toString());
+        SpringApplication.run(ProductProviderApplication.class, args);
     }
 }

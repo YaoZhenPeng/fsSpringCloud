@@ -13,6 +13,25 @@
     <artifactId>microServiceEurekaServerSecond</artifactId>
 
     <dependencies>
+        <!-- Bus 与 rabbitMQ依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+
+        <!-- 监听器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+
+        <!-- Spring Cloud Config 配置中心客户端相关 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
         <!-- 微服务注册中心相关 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

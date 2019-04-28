@@ -18,6 +18,23 @@
     <artifactId>microServiceChildModuleProductConsumer_Feign</artifactId>
 
     <dependencies>
+        <!-- Bus 与 rabbitMQ依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+
+        <!-- 监听器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- Spring Cloud Config 配置中心客户端相关 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
         <!-- 微服务相关 -->
         <dependency>
             <!-- 微服务客户端依赖 -->

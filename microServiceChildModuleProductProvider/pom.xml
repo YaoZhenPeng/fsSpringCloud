@@ -18,6 +18,24 @@
 
     <!-- 导入依赖 -->
     <dependencies>
+        <!-- Bus 与 rabbitMQ依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+
+        <!-- 监听器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud Config 配置中心客户端相关 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
         <!-- 引入公共微服务工程 -->
         <dependency>
             <groupId>com.example.fs</groupId>
@@ -31,7 +49,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-
+        
 
 
         <!-- 导入需要的包，父工程已经有了相同包的版本不需要在写版本 -->

@@ -11,6 +11,8 @@
 - 具体实现如下：
 ### 如何实现服务调用与负载均衡和熔断器
 - （1）导入jar,查看pom中 微服务相关
+- 注意;目前已经将配置文件 统一管理
+    - 具休查看 项目microServiceConfigServer 、microServiceConfigClient是如何配置的
 - （2）编辑配置文件，查看application.yml文件中的 eureka 内容和feign内容
 - （3）编写接口，查看com.example.fs.service.ProductClientService
 - （4）建一个controller进行调用，查看com.example.fs.controller.ProductFeignController_Consumer
