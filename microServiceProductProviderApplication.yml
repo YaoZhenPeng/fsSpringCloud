@@ -75,7 +75,7 @@ mybatis:
 spring:
   profiles: prod # 生产环境
   application:
-    name: test
+    name: microServiceProductProvider
 
   #   数据源基本配置
   datasource:
