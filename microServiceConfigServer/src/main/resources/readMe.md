@@ -30,3 +30,7 @@
 - 先启动本服务，然后启动事例服务 microServiceConfigClient，这时microServiceConfigClient是获取的Git上的配置
 - 然后修改Git上 microServiceConfigClient 的配置，要使配置生效我们用 POSTMAN工具发送POST请求http://localhost:5001/actuator/bus-refresh到microServiceConfigClient
 - microServiceConfigClient 服务就会重新从Git上从新获取配置。
+- 可以访问 com.example.fs.controller.ConfigClientController 里方法
+### 特殊点
+- 如果数据源采用Druid,更改数据源的配置不会立即生效，需要增加数据源的配置方式就可以，如下
+- 参考 com.example.fs.config.DruidConfig  其中@RefreshScope注解的方法，就可以刷新数据源配置
