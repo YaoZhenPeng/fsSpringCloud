@@ -28,7 +28,8 @@
 - 在微服务客户端的 bootstrap.yml 配置文件新增   RabbitMQ配置  消息总线配置   参考 microServiceConfigClient 的bootstrap.yml
 ### 测试步骤
 - 先启动本服务，然后启动事例服务 microServiceConfigClient，这时microServiceConfigClient是获取的Git上的配置
-- 然后修改Git上 microServiceConfigClient 的配置，要使配置生效我们用 POSTMAN工具发送POST请求http://localhost:5001/actuator/bus-refresh到microServiceConfigClient
+- 然后修改Git上 microServiceConfigClient 的配置，要使配置生效我们用 POSTMAN工具发送POST请求
+- http://localhost:4002/actuator/bus-refresh 到 microServiceConfigClient,端口就microServiceConfigClient 对应配置的端口
 - microServiceConfigClient 服务就会重新从Git上从新获取配置。
 - 可以访问 com.example.fs.controller.ConfigClientController 里方法
 ### 特殊点
