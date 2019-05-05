@@ -20,11 +20,12 @@ eureka:
       defaultZone: http://EurekaServerFirst.com:6001/eureka,http://EurekaServerSecond.com:6002/eureka #服务注册中心地址
 
 # 在被监控服务上添加暴露端点
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream
+# bootstrap.yml中已经配置，不要重复配置否则报错
+# management:
+#   endpoints:
+#     web:
+#       exposure:
+#         include: hystrix.stream
 
 # 开启 feign 的熔断器 hystrix
 feign:
@@ -47,11 +48,11 @@ eureka:
       defaultZone: http://EurekaServerFirst.com:6001/eureka,http://EurekaServerSecond.com:6002/eureka #服务注册中心地址
 
 # 在被监控服务上添加暴露端点
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: hystrix.stream
 
 # 开启 feign 的熔断器 hystrix
 feign:
