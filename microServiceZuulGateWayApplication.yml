@@ -38,6 +38,10 @@ zuul:
       # 指定服务ID,会自动从 Eureka 中找到此服务的 IP 和端口
       serviceId: microServiceProductProvider
       stripPrefix: false
+    ProductConsumerFeign:
+      path: /consumerFeign/**
+      serviceId: microServiceProductConsumerFeign
+      stripPrefix: false
 
 ---
 server:
@@ -73,4 +77,8 @@ zuul:
       path: /product/**
       # 指定服务ID,会自动从 Eureka 中找到此服务的 IP 和端口
       serviceId: microServiceProductProvider
+      stripPrefix: false
+    ProductConsumerFeign:
+      path: /consumerFeign/**
+      serviceId: microServiceProductConsumerFeign
       stripPrefix: false
