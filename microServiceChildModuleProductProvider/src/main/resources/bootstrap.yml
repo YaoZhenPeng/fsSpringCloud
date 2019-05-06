@@ -15,6 +15,7 @@ spring:
 
 # 消息总线配置
 # 暴露触发消息总线的地址
+# 在被监控服务上添加暴露端点
 management:
   endpoints:
     web:

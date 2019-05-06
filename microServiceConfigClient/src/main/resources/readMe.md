@@ -10,3 +10,5 @@
 - 5、配置完成了，想要查看是否获取到对应配置，查看项目中  ConfigClientController 
 - 其他微服务想要将配置文件 给   配置中心(Config)服务端模块 microServiceConfigServer
 - 来管理，参照本项目例子即可。
+- 6、每个微服务修改配置文件后无需重启可生效的配置，参照 microServiceConfigServer中的readMe.md文件中
+- 的 ‘微服务如何将配置文件给本项目管理’部分
