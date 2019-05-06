@@ -15,3 +15,4 @@
 #### idea实现电子流开发具体步骤如下：
 - 1。idea需要添加actiBPM插件（目的是用于绘制工作流图）
 - 2。添加jar包， 在pom中添加   activiti 电子流相关、  数据源 
+- 待续：  https://blog.csdn.net/chenweifu365/article/details/79032758/
