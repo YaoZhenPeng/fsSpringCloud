@@ -93,7 +93,7 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
-                <scope>Test</scope>
+                <scope>test</scope>
             </dependency>
 
             <!-- 微服务熔断器相关 -->

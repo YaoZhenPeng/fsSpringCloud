@@ -37,6 +37,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
+        <!-- 引入公共微服务工程 -->
+        <dependency>
+            <groupId>com.example.fs</groupId>
+            <artifactId>microServiceChildModuleCommon</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
 
         <!-- activiti 电子流相关 -->
         <dependency>
@@ -68,5 +75,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+
     </dependencies>
 </project>

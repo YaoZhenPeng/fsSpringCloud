@@ -16,9 +16,10 @@
 - 、com.example.fs.mapper.ProductMapper
 - (3)启动类加上扫描Mapper的注解，查看启动类
 - (4)编辑系统配置文件，查看其中  mybatis   、 spring.datasource相关配置
-### 如何使用 activiti 参考 activiti使用说明.md
-- 提供电子流的服务，具体如何实现如下说明：
 #### idea实现电子流开发具体步骤如下：
-- 1。idea需要添加actiBPM插件（目的是用于绘制工作流图）
+- 1。idea需要添加actiBPM插件（目的是用于绘制工作流图），绘制电子流程图 如processes/LeaveProcess.xml
 - 2。添加jar包， 在pom中添加   activiti 电子流相关
 - 3。编辑系统配置文件, 查看其中 spring.activiti
+- 4。绘制的流程图怎么与activiti的配置关联起来
+- 
+###  activiti使用说明.md

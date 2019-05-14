@@ -3,7 +3,6 @@ package com.example.fs;
 import org.activiti.engine.*;
 import org.activiti.engine.repository.DeploymentBuilder;
 import org.activiti.engine.task.Task;
-import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -13,17 +12,16 @@ import java.util.List;
  */
 public class TestActiviti {
 
-
-    @Test
+   /* @Test
     public void test()
     {
         //两种方式选择一种创建引擎方式：1。配置写在程序里，2。读对应的配置文件(配置文件其实就是xml里写bean的属性。这里就不举例了)
         //测试创建 activiti 引擎（创建流程）
         testCreateProcessEngine();
     }
-    /**
+    *//**
      * 测试创建 activiti 引擎 （创建流程）
-     */
+     *//*
     @Test
     public void testCreateProcessEngine() {
         ProcessEngineConfiguration cfg = ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
@@ -57,5 +55,5 @@ public class TestActiviti {
                     ",assignee:" + task.getAssignee() +
                     ",createTime:" + task.getCreateTime());
         }
-    }
+    }*/
 }
