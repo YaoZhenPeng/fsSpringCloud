@@ -9,7 +9,7 @@
 - 2启动 microServiceEurekaServerFirst、microServiceEurekaServerSecond，这两个工程都是微服务注册中心，两个功能一样，都是提供微
 - 服务之间交流的平台即微服务通过它可以互相访问调用。两个相当于做到了简单的集群配置。
 - 3启动 microServiceChildModuleProductProvider ，是具体业务的服务提供者，相当于淘宝里有订单和商品，那么它就是订单服务或者商品服务。真实项目会
-- 有许许多多这样的服务，目前就这一个。
+- 有许许多多这样的服务，这一个作为事例。
 - 4启动 microServiceChildModuleProductConsumer_Feign或者microServiceChildModuleProductConsumer_Ribbon，是用于调用服务提供者的工程，可以称为服务
 - 的消费者,两者作用是一样，我们选择其中一个就好。我们知道一个淘宝页面可能都要展示订单信息和商品信息，而信息同时位于两个不同的服务提供者。
 - 可以将它理解为页面展示工程。这两个工程不同之处，在于使用技术不同，其中Feign相对简单。
@@ -19,4 +19,6 @@
 相当于一个路由器，访问时通过它在去调用不同的服务。它还有一个作用就是调用时做一些校验如登录校验。
 - 7其它 microServiceChildModuleCommon ， 是主要写一些实体类的工程，只要其它工程有用到它的实体类，就要在maven中将它导入。
 - microServiceFatherModule ，是管理公共的jar包的工程，其它工程都要继承它，这样就不要重复写这些常用的jar包。
-### 待补充。。
+### 目前的服务提供者
+- 事例服务： microServiceChildModuleProductProvider
+- 电子流（基于activiti）： microServiceChildModuleActivity
