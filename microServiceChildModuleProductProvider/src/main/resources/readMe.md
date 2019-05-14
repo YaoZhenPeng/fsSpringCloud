@@ -11,4 +11,10 @@
 - （5）在启动类上加相关注解，查看启动类
 - 根据步骤一步步看，其中都有注解说明
 ### 本工程提供了哪些服务
-- 目前主要对product实体类，进行了查找数据库查找操作，功能待添加。。。
+#### mybatis连接数据库，数据源Druid配置
+- (1)导入jar，查看pom中  'mybatis 启动器'、'数据源'
+- (2)添加mybatis配置文件：mybatis/mybatis.cfg.xml，和对应表的xml文件如microServiceChildModuleProductProvider 的mybatis/mapper/ProductMapper.xml 
+- 、com.example.fs.mapper.ProductMapper
+- (3)启动类加上扫描Mapper接口的注解，查看启动类
+- (4)编辑系统配置文件，查看其中  mybatis   、 spring.datasource相关配置
+#### 目前主要对product实体类，进行了查找数据库查找操作，功能待添加。。。

@@ -40,6 +40,7 @@
         <module>../microServiceConfigServer</module>
         <module>../microServiceConfigClient</module>
         <module>../microServiceChildModuleActivity</module>
+        <module>../microServiceChildModuleFinance</module>
     </modules>
 
     <!-- 这个好像是设置一些工程的属性-->
