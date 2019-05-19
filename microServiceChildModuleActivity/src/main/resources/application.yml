@@ -1,4 +1,10 @@
 
 spring:
   application:
-    name: microServiceActivity
+    name:
+  activiti:
+    database-schema: ACTIVITI
+    database-schema-update: true
+    history-level: full
+    db-history-used: true
+    check-process-definitions: true

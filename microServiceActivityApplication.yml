@@ -35,14 +35,6 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 25
     useGlobalDataSourceStat: true
     connectionProperties: druid..stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-
-  activiti:
-    # 自动建表
-    database-schema: ACTIVITI
-    database-schema-update: true
-    history-level: full
-    db-history-used: true
-    check-process-definitions: true
 mybatis:
   config-location: classpath:mybatis/mybatis.cfg.xml   # mybatis配置文件所在路径
   mapper-locations: classpath:mybatis/mapper/**/*.xml  # mapper映射文件
@@ -95,18 +87,11 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 25
     useGlobalDataSourceStat: true
     connectionProperties: druid..stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-
-  activiti:
-    # 自动建表
-    database-schema: ACTIVITI
-    database-schema-update: true
-    history-level: full
-    db-history-used: true
-    check-process-definitions: true
 mybatis:
   config-location: classpath:mybatis/mybatis.cfg.xml   # mybatis配置文件所在路径
   mapper-locations: classpath:mybatis/mapper/**/*.xml  # mapper映射文件
   type-aliases-package: com.example.fs.model  # 所有Model别名类所在包
+
 eureka:
   client:
     register-with-eureka: true #服务注册开关
