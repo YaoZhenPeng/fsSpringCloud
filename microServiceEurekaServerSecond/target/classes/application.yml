@@ -1,0 +1,4 @@
+spring:
+  profiles: prod # 开发环境
+  application:
+    name: microServiceEurekaServerSecond

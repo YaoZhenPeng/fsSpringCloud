@@ -1,0 +1,12 @@
+
+server:
+  port: 5001
+
+spring:
+  application:
+    name: microServiceConfigServer
+  cloud:
+    config:
+      server:
+        git: # 远程库的git地址，保存所有的配置文件
+          uri: https://github.com/YaoZhenPeng/fsSpringCloud.git

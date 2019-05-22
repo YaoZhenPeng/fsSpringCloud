@@ -1,0 +1,22 @@
+# 读取配置文件相关配置
+spring:
+  cloud:
+    config:
+      name: microServiceConfigClientApplication #对应本项目在github上的配置文件名称，注意没有yml后缀名
+      profile: prod #本次访问的环境配置项
+      label: master #远程库存的分支名
+      uri: http://localhost:5001 #Config配置中心地址，通过它获取 microServiceConfigApplication.yml配置信息
+  # rabbitmq
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+# 消息总线配置
+# 暴露触发消息总线的地址 bus-refresh ，"*"代表全部
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

@@ -1,9 +1,10 @@
 package com.example.fs.controller;
 
-import com.example.fs.model.Product;
+
 import com.example.fs.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.example.fs.model.Product;
 
 @RestController
 public class ProductController {

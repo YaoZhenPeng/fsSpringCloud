@@ -19,6 +19,3 @@
 相当于一个路由器，访问时通过它在去调用不同的服务。它还有一个作用就是调用时做一些校验如登录校验。
 - 7其它 microServiceChildModuleCommon ， 是主要写一些实体类的工程，只要其它工程有用到它的实体类，就要在maven中将它导入。
 - microServiceFatherModule ，是管理公共的jar包的工程，其它工程都要继承它，这样就不要重复写这些常用的jar包。
-### 目前的服务提供者
-- 事例服务： microServiceChildModuleProductProvider
-- 电子流（基于activiti）： microServiceChildModuleActivity

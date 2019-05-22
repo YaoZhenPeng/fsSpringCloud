@@ -49,8 +49,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        
-
 
         <!-- 导入需要的包，父工程已经有了相同包的版本不需要在写版本 -->
 

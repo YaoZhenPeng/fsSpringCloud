@@ -1,0 +1,16 @@
+# 读取配置文件相关配置
+spring:
+  cloud:
+    config:
+      uri: http://localhost:5001 #Config配置中心地址，通过它获取 microServiceEurekaServerFirstApplication.yml 配置信息
+      name: microServiceZuulGateWayApplication # github上的配置名称，注意没有yml后缀名
+      profile: dev #本次访问的配置项
+      label: master #远程库的分支名
+
+# 消息总线配置
+# 暴露触发消息总线的地址 bus-refresh ，"*"代表全部
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
